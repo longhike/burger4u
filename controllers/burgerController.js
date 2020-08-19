@@ -23,6 +23,7 @@ router.post('/api/burgers', (req, res) => {
 })
 
 router.put('/api/burgers/:id', (req, res) => {
+    console.log(req.params.id);
     let condition = 'id=' + req.params.id
     console.log(condition + "inside burgerController");
     console.log(req.body.devoured + "inside burgerController");

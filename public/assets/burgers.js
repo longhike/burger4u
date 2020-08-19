@@ -1,22 +1,25 @@
-$(() => {
-    $(".devour-burger").on("click", (e) => {
+$(function() {
+    $(".devour-burger").on("click", function(e) {
       e.preventDefault()
-      let id = $(this).data("id")
+      let id = $(this).attr("id")
       console.log(id);
-      let defDevoured = $(this).data("newBurger")
+      let defDevoured = $(this).data("newburger")
       console.log(defDevoured);
   
       let newDevouredState = {
         devoured: defDevoured
       }
+      console.log(newDevouredState);
+      console.log("Hello world");
   
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: newDevouredState
       })
       .then(() => {
-          console.log("changed devoured status to " + defDevoured)
-          location.reload()
+        console.log("works");  
+        console.log("changed devoured status to " + defDevoured)
+        location.reload()
         }
       )
     })
